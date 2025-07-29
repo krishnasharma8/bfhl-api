@@ -2,13 +2,13 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
-const PORT =3000;
+const PORT = 3000;
 
 app.post('/bfhl', (req, res) => {
   try {
     const input = req.body.data || [];
 
-    const fullName = "KRISHNA_SHARMA";        
+    const fullName = "krishna_sharma";        
     const dob = "25-04-2004";                    
     const email = "krishna520.be22@chitkara.edu.in";       
     const rollNumber = "2210990520";            
@@ -43,7 +43,7 @@ app.post('/bfhl', (req, res) => {
 
     res.status(200).json({
       is_success: true,
-      user_id: `${fullName}_${dob}`,
+      user_id: `${fullName}_${dob.replace(/-/g, '')}`,
       email: email,
       roll_number: rollNumber,
       odd_numbers,
